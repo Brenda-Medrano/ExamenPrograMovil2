@@ -2,8 +2,10 @@ package com.example.programovilexa3.di
 
 import com.example.programovilexa3.swapi.data.datasource.SwapiRemoteDataSource
 import com.example.programovilexa3.swapi.data.repository.SwapiRepositoryImpl
+import com.example.programovilexa3.swapi.data.repository.SwapiPeopleRepositoryImpl
 import com.example.programovilexa3.swapi.data.service.SwapiApiService
 import com.example.programovilexa3.swapi.domain.repository.SwapiRepository
+import com.example.programovilexa3.swapi.domain.repository.SwapiPeopleRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpTimeout
@@ -28,4 +30,5 @@ val dataModule = module {
     }
     single<SwapiRemoteDataSource> { SwapiApiService(get()) }
     single<SwapiRepository> { SwapiRepositoryImpl(get()) }
+    single<SwapiPeopleRepository> { SwapiPeopleRepositoryImpl(get()) }
 }
